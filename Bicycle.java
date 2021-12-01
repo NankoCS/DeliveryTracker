@@ -4,7 +4,7 @@ public class Bicycle extends Vehicule {
 
     public Bicycle(String name, double price, double avgSpeed){
         super(name, price, avgSpeed, 0.0, 0.0, price/Parameters.bicycleCostDividor);
-        //this line is a test to see how git reacts to changes
+        //this is a new test this time testing on my macbook
     }
 
 
