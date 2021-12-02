@@ -10,15 +10,33 @@ public class Vehicule {
 
     
     //methods
-
-    //constructor
-    public Vehicule(String name, double price, double avgSpeed, double co2Emission, double load, double utilizationCost){
+    public Vehicule(String name, double price, double co2Emission, double load, double utilizationCost){
+        this.name = name;
+        this.price = price;
+        this.co2Emission = co2Emission;
+        this.load = load;
+        this.utilizationCost = utilizationCost;
+    }
+    
+    //overriding the constructor with another one that will allow us to input the avgSpeed directly as a parameter, which will be used for a scooter in our case but it could also be used 
+    //for cars and anything motorized if we one day need to add one into our program.
+    public Vehicule(String name, double avgSpeed, double price, double co2Emission, double load, double utilizationCost){
         this.name = name;
         this.price = price;
         this.avgSpeed = avgSpeed;
         this.co2Emission = co2Emission;
         this.load = load;
         this.utilizationCost = utilizationCost;
+    }
+
+    //setter method to change the avgSpeed of the vehicule with a method as it is not something that will be inputted as parameter for a bicycle.
+    protected void setAvgSpeed(double avgSpeed){
+        this.avgSpeed = avgSpeed;
+    }
+
+    //setter method that will be used to later on change how much can a vehicule carry. We can suppose in the future certain vehicules adding storage like a bicycle adding a basket for example
+    protected void setLoad(double load){
+        this.load = load;
     }
 
     //getter methods
