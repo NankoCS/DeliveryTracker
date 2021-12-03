@@ -5,5 +5,9 @@ public class AppliDelivery {
         Bicycle redBicycle = new Bicycle("red bicycle", 550, raphael);
         redBicycle.DisplayVehicule();
         System.out.println(raphael.getLoad());
+
+        Coordinates setOfCoordinates = new Coordinates(35.5, 55.5);
+        System.out.println(setOfCoordinates.getLatitude());
+        System.out.println(setOfCoordinates.getLongitude());
     }
 }

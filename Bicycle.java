@@ -3,6 +3,7 @@ public class Bicycle extends Vehicule {
     private Cyclist cyclist;
     private double avgSpeed;
 
+    //ask if cyclist is assigned to a bicycle or not
     public Bicycle(String name, double price, Cyclist cyclist){
         super(name, price, 0.0, 0.0, price/Parameters.bicycleCostDividor);
         this.cyclist = cyclist;
