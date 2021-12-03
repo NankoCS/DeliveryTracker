@@ -7,12 +7,12 @@ public class Company {
     String adress;
     Coordinates setOfCoordinates;
 
-    public Company(String name, String adress, double latitude, double longitude){
+    public Company(String name, String adress, Coordinates setOfCoordinates){
         this.listOfEmployees = new ArrayList<Employee>();
         this.listOfVehicules = new ArrayList<Vehicule>();
         this.name = name;
         this.adress = adress;
-        this.setOfCoordinates = new Coordinates(latitude, longitude);
+        this.setOfCoordinates = setOfCoordinates;
     }
 
     public String getName(){
@@ -30,5 +30,7 @@ public class Company {
     public ArrayList<Vehicule> getListOfVehicules(){
         return this.listOfVehicules;
     }
+
+    public void addVehicule(Vehicule vehicule)
 
 }

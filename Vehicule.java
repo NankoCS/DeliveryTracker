@@ -35,8 +35,8 @@ public class Vehicule {
     }
 
     //setter method that will be used to later on change how much can a vehicule carry. We can suppose in the future certain vehicules adding storage like a bicycle adding a basket for example
-    protected void setLoad(double load){
-        this.load = load;
+    public void setLoad(Employee employee){
+        this.load = Math.max(this.load, employee.getLoad());
     }
 
     //getter methods
@@ -60,6 +60,7 @@ public class Vehicule {
     }
 
     //methods added to facilitate the display
+    //change this to a toString returning a string that we'll display in the main
     public void DisplayVehicule(){
         System.out.println(" -- " + this.getName() + " -- ");
         System.out.println(" -- Bought for $" + this.getPrice() + " -- ");
