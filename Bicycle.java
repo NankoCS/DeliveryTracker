@@ -17,4 +17,14 @@ public class Bicycle extends Vehicule {
     protected void setAvgSpeed(Cyclist cyclist){
         this.avgSpeed = cyclist.getAvgSpeed();
     }
+    
+    public double getAvgSpeedWithCyclist(Cyclist cyclist){
+        return cyclist.getAvgSpeed();
+    }
+
+
+    //method to test inheritance
+    // public String display(){
+    //     return "this is a bicycle";
+    // }
 }

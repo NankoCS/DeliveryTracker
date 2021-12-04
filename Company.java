@@ -23,6 +23,10 @@ public class Company {
         return this.adress;
     }
 
+    public Coordinates getCoordinates(){
+        return this.setOfCoordinates;
+    }
+
     public ArrayList<Employee> getListOfEmployees(){
         return this.listOfEmployees;
     }
@@ -31,6 +35,21 @@ public class Company {
         return this.listOfVehicules;
     }
 
-    public void addVehicule(Vehicule vehicule)
+    public void addVehicule(Vehicule vehicule){
+        this.listOfVehicules.add(vehicule);
+    }
+
+    public void addEmployee(Employee employee){
+        this.listOfEmployees.add(employee);
+    }
+
+
+    public String toString(){
+        return 
+        "\n--- " + this.getName() + " ---" + " \n" 
+        + "Location: " + this.getAdress() + " - " + this.getCoordinates().toString() + "\n"
+        + "Number of Employees: " + this.listOfEmployees.size() + "\n"
+        + "Number of vehicules: " + this.listOfVehicules.size();
+    }
 
 }

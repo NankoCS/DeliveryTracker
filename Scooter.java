@@ -17,4 +17,9 @@ public class Scooter extends Vehicule {
     public double getGasConsumption() {
         return this.gasConsumption;
     }
+
+    //method to test inheritance
+    // public String display(){
+    //     return "this is a Scooter";
+    // }
 }
