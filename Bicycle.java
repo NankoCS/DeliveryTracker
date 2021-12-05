@@ -23,6 +23,7 @@ public class Bicycle extends Vehicule {
     }
 
 
+
     //method to test inheritance
     // public String display(){
     //     return "this is a bicycle";

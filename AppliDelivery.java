@@ -37,14 +37,20 @@ public class AppliDelivery {
         // }
         
         Coordinates origin1 = new Coordinates(55.5, 55.5);
-        Coordinates destination1 = new Coordinates(100.0, 100.0);
-        Delivery pizza = new Delivery(origin1, destination1, 3.0, 10);
+        Coordinates destination1 = new Coordinates(150.0, 150.0);
+        Delivery pizza = new Delivery(origin1, destination1, 3.0, 10.0, Jake, redBicycle);
+
+
         Coordinates origin2 = new Coordinates(65.5, 75.5);
         Coordinates destination2 = new Coordinates(100.0, 100.0);
-        Delivery pizza2 = new Delivery(origin2, destination2, 3.0, 10);
-        System.out.println(pizza2.getBestDelivery(redScooter, pizza, redBicycle, Jake, John).toString());
-        System.out.println(pizza.getDuration(redBicycle));
-        System.out.println(pizza.getDistance()/redBicycle.getAvgSpeed() *60);
-        System.out.println(pizza.doable(John, redBicycle));
+        Delivery pizza2 = new Delivery(origin2, destination2, 3.0, 10.0, Jake, redScooter);
+        System.out.println(pizza.toString());
+        System.out.println(pizza2.toString());
+        pizza.getInstanceOfVehicule();
+        pizza2.getInstanceOfVehicule();
+        System.out.println(John.getClass());
+        System.out.println(Jake.getClass());
+        System.out.println(redBicycle.getClass().toString());
+        System.out.println(pizza.matchingEmployeeAndVehicule());
     }
 }

@@ -2,13 +2,35 @@ public class Delivery {
     private Coordinates origin;
     private Coordinates destination;
     private double weight;
+    //distance in km
+    //for now while backend not connected to front
     private double distance;
+    private Employee deliveryPerson;
+    private Vehicule deliveryVehicule;
 
-    public Delivery(Coordinates origin, Coordinates destination, double weight, double distance) {
+    public Delivery(Coordinates origin, Coordinates destination, double weight, double distance,
+            Employee deliveryperson, Vehicule deliveryVehicule) {
         this.origin = origin;
         this.destination = destination;
         this.weight = weight;
         this.distance = distance;
+        this.deliveryPerson = deliveryperson;
+        this.deliveryVehicule = deliveryVehicule;
+    }
+
+    //maybe setter of distance to change with frontend later on
+
+    public void getInstanceOfVehicule(){
+        System.out.println(this.getDeliveryVehicule().getClass());
+    }
+
+    public boolean matchingEmployeeAndVehicule(){
+        if (this.getDeliveryVehicule().getClass().toString() == this.getDeliveryPerson().getVehiculeClass()){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public double getDistance() {
@@ -27,13 +49,21 @@ public class Delivery {
         return this.weight;
     }
 
-    public double getDuration(Vehicule vehicule) {
-        return ((this.getDistance() / vehicule.getAvgSpeed()) * 60) * 2;
+    public Vehicule getDeliveryVehicule() {
+        return this.deliveryVehicule;
     }
 
-    public boolean doable(Employee employee, Vehicule vehicule) {
+    public Employee getDeliveryPerson() {
+        return this.deliveryPerson;
+    }
+
+    public double getDuration() {
+        return ((this.getDistance() / this.getDeliveryVehicule().getAvgSpeed()) * 60) * 2;
+    }
+
+    public boolean doable() {
         // only need to check if the load of the vehicule is superior
-        if ((vehicule.getLoad() >= this.weight) && (this.getDuration(vehicule) <= 60.0)) {
+        if ((this.getDeliveryVehicule().getLoad() >= this.weight) && (this.getDuration() <= 60.0)) {
             return true;
         } else {
             return false;
@@ -41,35 +71,32 @@ public class Delivery {
     }
 
     // co2 emission in grams
-    public double getCo2Emission(Vehicule vehicule) {
-        return this.getDistance() * vehicule.getCo2Emission();
+    public double getCo2Emission() {
+        return this.getDistance() * this.getDeliveryVehicule().getCo2Emission();
     }
 
-    public double getPriceOfDelivery(Vehicule vehicule, Employee employee) {
-        return this.getDistance() * vehicule.getUtilizationCost()
-                + (this.getDuration(vehicule) / 60) * employee.getSalary();
+    public double getPriceOfDelivery() {
+        return this.getDistance() * this.getDeliveryVehicule().getUtilizationCost()
+                + (this.getDuration() / 60) * this.getDeliveryPerson().getSalary();
     }
 
-    // check if same deliveries
-    public Delivery getBestDelivery(Vehicule firstVehicule, Delivery otherDelivery, Vehicule secondVehicule,
-            Employee firstEmployee, Employee secondEmployee) {
-        if ((this.getCo2Emission(firstVehicule) > otherDelivery.getCo2Emission(secondVehicule)
-                && (this.getPriceOfDelivery(firstVehicule, firstEmployee) > otherDelivery
-                        .getPriceOfDelivery(secondVehicule, secondEmployee))
-                || (this.getCo2Emission(firstVehicule) > otherDelivery.getCo2Emission(secondVehicule)
-                        && (this.getPriceOfDelivery(firstVehicule, firstEmployee) == otherDelivery
-                                .getPriceOfDelivery(secondVehicule, secondEmployee))
-                        || (this.getCo2Emission(firstVehicule) == otherDelivery.getCo2Emission(secondVehicule)
-                                && (this.getPriceOfDelivery(firstVehicule, firstEmployee) > otherDelivery
-                                        .getPriceOfDelivery(secondVehicule, secondEmployee)))))) {
-            return otherDelivery;
+    // check if same deliveries later
+    public boolean worseThan(Delivery other) {
+        if (((this.getCo2Emission() > other.getCo2Emission())
+                && (this.getPriceOfDelivery() > other.getPriceOfDelivery()))
+                || ((this.getCo2Emission() > other.getCo2Emission())
+                        && (this.getPriceOfDelivery() == other.getPriceOfDelivery()))
+                || ((this.getCo2Emission() == other.getCo2Emission())
+                        && (this.getPriceOfDelivery() > other.getPriceOfDelivery()))) {
+            return true;
         } else {
-            return this;
+            return false;
         }
     }
 
-    public String toString(){
-        return "Delivery starting from: " + this.getOrigin().toString() + "\nGoing to: " + this.getDestination().toString();
+    public String toString() {
+        return "Delivery starting from: " + this.getOrigin().toString() + "\nGoing to: "
+                + this.getDestination().toString();
     }
 
     // add in bonus possibility for customer to pay extra to either make the

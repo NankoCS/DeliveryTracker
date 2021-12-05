@@ -1,9 +1,11 @@
-public class Employee {
+public abstract  class Employee {
     private String name;
     private double weight;
     //in euros per hour
     private double salary;
     private double load;
+    //boolean to know if the employee is currently in delivery or not
+    private boolean inDelivery;
 
     //constructor
     public Employee(String name, double weight, double salary){
@@ -30,5 +32,10 @@ public class Employee {
         return this.load;
     }
 
+    public boolean getInDelivery(){
+        return this.inDelivery;
+    }
+
+    public abstract String getVehiculeClass();
 
 }
