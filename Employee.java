@@ -13,6 +13,7 @@ public abstract  class Employee {
         this.weight = weight;
         this.salary = salary;
         this.load = weight/Parameters.loadDividor;
+        this.inDelivery = false;
     }
 
     //getter methods
