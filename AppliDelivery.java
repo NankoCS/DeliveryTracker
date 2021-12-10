@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class AppliDelivery {
     public static void main(String[] args){
 
@@ -27,9 +28,10 @@ public class AppliDelivery {
 
         //code to test out the extensibility of our code
         Employee Jake = new Driver("Jake", 85.0, 35.5);
+        //SpaceX.addEmployee(Jake);
         Truck Blacktruck = new Truck("Blackmamba", 100.0, 150000.0, 150.0, 800.0, 9.5, Jake);
-        System.out.println(Blacktruck.toString());
-        SpaceX.addVehicule(Blacktruck);
+        System.out.println(Blacktruck.getAvgSpeed());
+        //SpaceX.addVehicule(Blacktruck);
 
         //used to test inheritance
         // for (int i = 0; i < SpaceX.listOfVehicules.size(); i++){
@@ -38,7 +40,7 @@ public class AppliDelivery {
         
         Coordinates origin1 = new Coordinates(55.5, 55.5);
         Coordinates destination1 = new Coordinates(150.0, 150.0);
-        Delivery pizza = new Delivery(origin1, destination1, 3.0, 10.0, Jake, redBicycle);
+        Delivery pizza = new Delivery(origin1, destination1, 3.0, 10.0, John, redBicycle);
 
 
         Coordinates origin2 = new Coordinates(65.5, 75.5);
@@ -46,11 +48,20 @@ public class AppliDelivery {
         Delivery pizza2 = new Delivery(origin2, destination2, 3.0, 10.0, Jake, redScooter);
         System.out.println(pizza.toString());
         System.out.println(pizza2.toString());
-        pizza.getInstanceOfVehicule();
-        pizza2.getInstanceOfVehicule();
+        System.out.println(pizza.getInstanceOfVehicule());
+        System.out.println(pizza2.getInstanceOfVehicule());
         System.out.println(John.getClass());
         System.out.println(Jake.getClass());
         System.out.println(redBicycle.getClass().toString());
-        System.out.println(pizza.matchingEmployeeAndVehicule());
+        System.out.println(pizza.validEmployeeAndVehicule());
+
+        System.out.println(John.getVehiculeClass());
+        System.out.println(pizza.getInstanceOfVehicule());
+
+        ArrayList<Delivery> listOfSpaceXDeliveries = SpaceX.getAllDoableDeliveries(3.2, 5.0);
+        for (int i = 0; i < listOfSpaceXDeliveries.size(); i++){
+            System.out.println(listOfSpaceXDeliveries.get(i).display());
+        }
+
     }
 }

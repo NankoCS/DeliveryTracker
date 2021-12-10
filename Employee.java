@@ -1,4 +1,4 @@
-public abstract  class Employee {
+public abstract class Employee {
     private String name;
     private double weight;
     //in euros per hour

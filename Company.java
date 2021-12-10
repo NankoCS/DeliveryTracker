@@ -43,6 +43,22 @@ public class Company {
         this.listOfEmployees.add(employee);
     }
 
+    public ArrayList<Delivery> getAllDoableDeliveries(double weight, double duration){
+        Delivery tmp;
+        ArrayList<Delivery> listOfDeliveries = new ArrayList<Delivery>();
+        for (int i = 0; i < this.listOfEmployees.size(); i++){
+            for (int j = 0; j < this.listOfVehicules.size(); j++){
+                tmp = new Delivery(weight, duration, this.listOfEmployees.get(i), this.listOfVehicules.get(j));
+                if (tmp.validEmployeeAndVehicule()){
+                    listOfDeliveries.add(tmp);
+                }
+            }
+        }
+        return listOfDeliveries;
+    }
+
+
+
 
     public String toString(){
         return 

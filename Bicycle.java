@@ -1,5 +1,4 @@
 public class Bicycle extends Vehicule {
-    
     private double avgSpeed;
 
     //ask if cyclist is assigned to a bicycle or not
