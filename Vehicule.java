@@ -1,4 +1,4 @@
-public abstract class Vehicule {
+public abstract class Vehicule implements AddableVehicule {
 
     // attributes
     private String name;

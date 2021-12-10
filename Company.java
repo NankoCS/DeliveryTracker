@@ -1,15 +1,20 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Company {
-    ArrayList<Vehicule> listOfVehicules;
-    ArrayList<Employee> listOfEmployees;
-    String name;
-    String adress;
-    Coordinates setOfCoordinates;
+    private ArrayList<Vehicule> listOfVehicules;
+    private ArrayList<Employee> listOfEmployees;
+    private HashMap<String, ArrayList<Employee>> MapOfEmployees;
+    private HashMap<String, ArrayList<Vehicule>> MapOfVehicules;
+    private String name;
+    private String adress;
+    private Coordinates setOfCoordinates;
 
     public Company(String name, String adress, Coordinates setOfCoordinates){
         this.listOfEmployees = new ArrayList<Employee>();
         this.listOfVehicules = new ArrayList<Vehicule>();
+        this.MapOfEmployees = new HashMap<String, ArrayList<Employee>>();
+        this.MapOfVehicules = new HashMap<String, ArrayList<Vehicule>>();
         this.name = name;
         this.adress = adress;
         this.setOfCoordinates = setOfCoordinates;
@@ -35,8 +40,12 @@ public class Company {
         return this.listOfVehicules;
     }
 
+    public HashMap<String, ArrayList<Vehicule>> getHashMap(){
+        return MapOfVehicules;
+    }
+
     public void addVehicule(Vehicule vehicule){
-        this.listOfVehicules.add(vehicule);
+        vehicule.addToCompany(this.MapOfVehicules);
     }
 
     public void addEmployee(Employee employee){
