@@ -84,7 +84,7 @@ public class AppliDelivery {
 
         ArrayList<Delivery> tmp = SpaceX.getAllDeliveries(2.2, 3.2, destination1);
         ArrayList<Delivery> tmp2 = SpaceX.getAllPossibleDeliveries(tmp);
-        for (Delivery delivery : tmp){
+        for (Delivery delivery : tmp2){
             System.out.println(delivery);
         }
 

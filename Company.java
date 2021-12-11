@@ -72,6 +72,7 @@ public class Company {
     public ArrayList<Delivery> getAllPossibleDeliveries(ArrayList<Delivery> listOfDeliveries){
         ArrayList<Delivery> tmpALOfPossibleDeliveries= new ArrayList<Delivery>();
         for (Delivery delivery : listOfDeliveries){
+            delivery.getDeliveryVehicule().setLoad(delivery.getDeliveryPerson());
             if (delivery.validWeightAndDuration()){
                 tmpALOfPossibleDeliveries.add(delivery);
             }
