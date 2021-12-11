@@ -45,10 +45,38 @@ public class Company {
         employee.addToCompany(this.mapOfEmployees);
     }
 
-    public ArrayList<Delivery> makePossibleDeliveries(HashMap<String, ArrayList<Vehicule>> mapOfVehicule, HashMap<String, ArrayList<Employee>> mapOfEmployee){
-        ArrayList<Delivery> tmp = new ArrayList<Delivery>();
-        //for (int i = 0; i < mapOfVehicule.get("key"))
-        return tmp;
+    //method to get ALL of the doable deliveries (vehicule matching with what an employee can drive)
+    public ArrayList<Delivery> getAllDeliveries(double weight, double distance, Coordinates destination){
+        ArrayList<Delivery> tmpALOfDeliveries = new ArrayList<Delivery>();
+        Delivery tmpDelivery;
+        //iterating through each key of the map of vehicules to get the key
+        for (String key : this.getMapOfVehicules().keySet()){
+            if (this.getMapOfEmployees().get(key) != null){
+                if (this.getMapOfVehicules().get(key) != null){
+                    for (int i = 0; i < this.getMapOfVehicules().get(key).size(); i++){
+                        for (int j = 0; j < this.getMapOfEmployees().get(key).size(); j++){
+                            tmpDelivery = new Delivery(this.getCoordinates(), destination, weight, distance, this.getMapOfEmployees().get(key).get(j), this.getMapOfVehicules().get(key).get(i));
+                            tmpALOfDeliveries.add(tmpDelivery);
+                        }
+                    }
+                }
+            //System.out.println(SpaceX.getMapOfEmployees().get(key));
+            }
+        }
+        return tmpALOfDeliveries;
+    }
+
+    //method to get ALL of the POSSIBLE deliveries (weight and duration valid)
+    //I could've added the necessary condition in the previous method but I decided to make another function for that since I could want in the future to be able to get ALL of the deliveries
+    //as maybe we could add a way for the customer to pay extra fees to make the delivery person go further
+    public ArrayList<Delivery> getAllPossibleDeliveries(ArrayList<Delivery> listOfDeliveries){
+        ArrayList<Delivery> tmpALOfPossibleDeliveries= new ArrayList<Delivery>();
+        for (Delivery delivery : listOfDeliveries){
+            if (delivery.validWeightAndDuration()){
+                tmpALOfPossibleDeliveries.add(delivery);
+            }
+        }
+        return tmpALOfPossibleDeliveries;
     }
 
 

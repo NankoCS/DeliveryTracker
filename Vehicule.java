@@ -72,13 +72,17 @@ public abstract class Vehicule implements AddableVehicule {
 
     // methods added to facilitate the display
     // change this to a toString returning a string that we'll display in the main
-    public String toString(){
+    public String getInfo(){
         return " -- " + this.getName() + " -- \n"
         +(" -- Bought for $" + this.getPrice() + " -- \n")
         +(" -- Travels at " + this.getAvgSpeed() + "km/h -- \n")
         +(" -- " + this.getCo2Emission() + " g/km of CO2 emitted -- \n")
         +(" -- Can carry up to " + this.getLoad() + " kg -- \n")
         +(" -- Costs " + this.getUtilizationCost() + " euros/km -- \n");
+    }
+
+    public String toString(){
+        return this.name;
     }
 
     //method to test inheritance

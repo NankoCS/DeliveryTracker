@@ -17,4 +17,8 @@ public class Driver extends Employee{
         //at this point, we can safely add a Driver to the list
         mapOfEmployees.get("Driver").add(this);
     }
+
+    public String toString(){
+        return this.getName();
+    }
 }

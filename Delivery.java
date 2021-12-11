@@ -97,9 +97,13 @@ public class Delivery {
     }
 
     //@override of toString method to return a user friendly string of the delivery
-    public String toString() {
+    public String getInfos() {
         return "Delivery starting from: " + this.getOrigin().toString() + "\nGoing to: "
                 + this.getDestination().toString();
+    }
+
+    public String toString(){
+        return "Delivered by " + this.getDeliveryPerson() + " on the " + this.getDeliveryVehicule();
     }
 
     public String display(){
