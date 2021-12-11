@@ -3,15 +3,15 @@ import java.util.HashMap;
 
 public class Company {
 
-    private HashMap<String, ArrayList<Employee>> MapOfEmployees;
-    private HashMap<String, ArrayList<Vehicule>> MapOfVehicules;
+    private HashMap<String, ArrayList<Employee>> mapOfEmployees;
+    private HashMap<String, ArrayList<Vehicule>> mapOfVehicules;
     private String name;
     private String adress;
     private Coordinates setOfCoordinates;
 
     public Company(String name, String adress, Coordinates setOfCoordinates){
-        this.MapOfEmployees = new HashMap<String, ArrayList<Employee>>();
-        this.MapOfVehicules = new HashMap<String, ArrayList<Vehicule>>();
+        this.mapOfEmployees = new HashMap<String, ArrayList<Employee>>();
+        this.mapOfVehicules = new HashMap<String, ArrayList<Vehicule>>();
         this.name = name;
         this.adress = adress;
         this.setOfCoordinates = setOfCoordinates;
@@ -30,31 +30,26 @@ public class Company {
     }
 
 
-    public HashMap<String, ArrayList<Vehicule>> getHashMap(){
-        return MapOfVehicules;
+    public HashMap<String, ArrayList<Vehicule>> getMapOfVehicules(){
+        return mapOfVehicules;
+    }
+    public HashMap<String, ArrayList<Employee>> getMapOfEmployees(){
+        return mapOfEmployees;
     }
 
     public void addVehicule(Vehicule vehicule){
-        vehicule.addToCompany(this.MapOfVehicules);
+        vehicule.addToCompany(this.mapOfVehicules);
     }
 
     public void addEmployee(Employee employee){
-        employee.addToCompany(this.MapOfEmployees);
+        employee.addToCompany(this.mapOfEmployees);
     }
 
-    // public ArrayList<Delivery> getAllDoableDeliveries(double weight, double duration){
-    //     Delivery tmp;
-    //     ArrayList<Delivery> listOfDeliveries = new ArrayList<Delivery>();
-    //     for (int i = 0; i < this.listOfEmployees.size(); i++){
-    //         for (int j = 0; j < this.listOfVehicules.size(); j++){
-    //             tmp = new Delivery(weight, duration, this.listOfEmployees.get(i), this.listOfVehicules.get(j));
-    //             if (tmp.validEmployeeAndVehicule()){
-    //                 listOfDeliveries.add(tmp);
-    //             }
-    //         }
-    //     }
-    //     return listOfDeliveries;
-    // }
+    public ArrayList<Delivery> makePossibleDeliveries(HashMap<String, ArrayList<Vehicule>> mapOfVehicule, HashMap<String, ArrayList<Employee>> mapOfEmployee){
+        ArrayList<Delivery> tmp = new ArrayList<Delivery>();
+        //for (int i = 0; i < mapOfVehicule.get("key"))
+        return tmp;
+    }
 
 
 

@@ -25,12 +25,12 @@ public class Bicycle extends Vehicule {
 
     public void addToCompany(HashMap<String, ArrayList<Vehicule>> mapOfVehicules){
         //checking if there's already an arraylist of scooters
-        if (mapOfVehicules.containsKey("Bicycle") == false){
+        if (mapOfVehicules.containsKey("Cyclist") == false){
             ArrayList<Vehicule> tmp = new ArrayList<Vehicule>();
-            mapOfVehicules.put("Bicycle", tmp);
+            mapOfVehicules.put("Cyclist", tmp);
         }
         //at this point, we can safely add a scooter to the list
-        mapOfVehicules.get("Bicycle").add(this);
+        mapOfVehicules.get("Cyclist").add(this);
     }
 
     //method to test inheritance

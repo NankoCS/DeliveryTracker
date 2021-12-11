@@ -82,15 +82,6 @@ public class Delivery {
         }
     }
 
-    public boolean validEmployeeAndVehicule(){
-        if (this.getInstanceOfVehicule() == this.getDeliveryPerson().getVehiculeClass()){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
     // check if same deliveries later
     public boolean worseThan(Delivery other) {
         if (((this.getCo2Emission() > other.getCo2Emission())

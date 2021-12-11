@@ -53,19 +53,12 @@ public class AppliDelivery {
         System.out.println(John.getClass());
         System.out.println(Jake.getClass());
         System.out.println(redBicycle.getClass().toString());
-        System.out.println(pizza.validEmployeeAndVehicule());
 
-        System.out.println(John.getVehiculeClass());
         System.out.println(pizza.getInstanceOfVehicule());
 
-        // ArrayList<Delivery> listOfSpaceXDeliveries = SpaceX.getAllDoableDeliveries(3.2, 5.0);
-        // for (int i = 0; i < listOfSpaceXDeliveries.size(); i++){
-        //     System.out.println(listOfSpaceXDeliveries.get(i).display());
-        // }
-
-        for (int i = 0; i < SpaceX.getHashMap().get("Scooter").size(); i++){
-            System.out.println(SpaceX.getHashMap().get("Scooter").get(i));
-        }
+        System.out.println(SpaceX.getMapOfEmployees());
+        System.out.println(SpaceX.getMapOfVehicules());
+        System.out.println(SpaceX.getMapOfVehicules().keySet());
 
     }
 }

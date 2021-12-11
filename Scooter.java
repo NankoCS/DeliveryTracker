@@ -28,11 +28,11 @@ public class Scooter extends Vehicule {
 
     public void addToCompany(HashMap<String, ArrayList<Vehicule>> mapOfVehicules){
         //checking if there's already an arraylist of scooters
-        if (mapOfVehicules.containsKey("Scooter") == false){
+        if (mapOfVehicules.containsKey("Driver") == false){
             ArrayList<Vehicule> tmp = new ArrayList<Vehicule>();
-            mapOfVehicules.put("Scooter", tmp);
+            mapOfVehicules.put("Driver", tmp);
         }
         //at this point, we can safely add a scooter to the list
-        mapOfVehicules.get("Scooter").add(this);
+        mapOfVehicules.get("Driver").add(this);
     }
 }

@@ -7,10 +7,6 @@ public class Driver extends Employee{
         super(name, weight, salary);
     }
     
-    //
-    public String getVehiculeClass(){
-        return "class Scooter";
-    }
 
     public void addToCompany(HashMap<String, ArrayList<Employee>> mapOfEmployees){
         //checking if there's already an arraylist of scooters

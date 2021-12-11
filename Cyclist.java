@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public abstract class Cyclist extends Employee {
     private double avgSpeed;
 
@@ -6,9 +9,14 @@ public abstract class Cyclist extends Employee {
         super(name, weight, salary);
     }
 
-    //method necessarily implemented by a class that extends the Employee class as it implements an interface
-    public String getVehiculeClass(){
-        return "class Bicycle";
+    public void addToCompany(HashMap<String, ArrayList<Employee>> mapOfEmployees){
+        //checking if there's already an arraylist of scooters
+        if (mapOfEmployees.containsKey("Cyclist") == false){
+            ArrayList<Employee> tmp = new ArrayList<Employee>();
+            mapOfEmployees.put("Cyclist", tmp);
+        }
+        //at this point, we can safely add a Driver to the list
+        mapOfEmployees.get("Cyclist").add(this);
     }
 
     public abstract double getAvgSpeed();

@@ -36,7 +36,4 @@ public abstract class Employee implements AddableEmployee{
     public boolean getInDelivery(){
         return this.inDelivery;
     }
-
-    public abstract String getVehiculeClass();
-
 }
