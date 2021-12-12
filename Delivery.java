@@ -103,7 +103,7 @@ public class Delivery {
     }
 
     public String toString(){
-        return "Delivered by " + this.getDeliveryPerson() + " on the " + this.getDeliveryVehicule();
+        return this.getDeliveryPerson() + " - " + this.getDeliveryVehicule();
     }
 
     public String display(){

@@ -66,32 +66,57 @@ public class AppliDelivery {
         ExpertCyclist Johnnnn = new ExpertCyclist("Johnnnn", 60.0, 25.5);
         Employee Jakee = new Driver("Jakee", 85.0, 35.5);
         Employee Jakeee = new Driver("Jakeee", 85.0, 35.5);
-        //SpaceX.addEmployee(Jakee);
-        //SpaceX.addEmployee(Jakeee);
-        //SpaceX.addEmployee(Johnn);
-        //SpaceX.addEmployee(Johnnn);
-        //SpaceX.addEmployee(Johnnnn);
+        // SpaceX.addEmployee(Jakee);
+        // SpaceX.addEmployee(Jakeee);
+        // SpaceX.addEmployee(Johnn);
+        // SpaceX.addEmployee(Johnnn);
+        // SpaceX.addEmployee(Johnnnn);
 
         Bicycle blueBicycle = new Bicycle("blue bicycle", 550);
-        Scooter blueScooter = new Scooter("Blue scooter", 3500.0, 50.0, 300.0, 7.5);
+        Scooter blueScooter = new Scooter("Blue scooter", 3500.0, 50.0, 50.0, 7.5);
+        Scooter greenScooter = new Scooter("green scooter", 4500.0, 50.0, 40.0, 7.5);
+        
         blueBicycle.setLoad(John);
         blueBicycle.setAvgSpeed(John);
         SpaceX.addVehicule(blueBicycle);
         SpaceX.addVehicule(blueScooter);
+        SpaceX.addVehicule(greenScooter);
 
         System.out.println(SpaceX.getMapOfVehicules().values());
         System.out.println(SpaceX.getMapOfEmployees().values());
 
-        ArrayList<Delivery> tmp = SpaceX.getAllDeliveries(2.2, 3.2, destination1);
-        ArrayList<Delivery> tmp2 = SpaceX.getAllPossibleDeliveries(tmp);
+        ArrayList<Delivery> tmp = SpaceX.getDifferentDeliveriesForOneItem(2.2, 3.2, destination1);
+        ArrayList<Delivery> tmp2 = SpaceX.getAllValidDeliveries(tmp);
+        ArrayList<Delivery> tmp3 = SpaceX.getDirectlyAllValidDeliveries(2.2, 3.2, destination1);
         for (Delivery delivery : tmp2){
+            System.out.println(delivery);
+        }
+        System.out.println("TMP3 now");
+        for (Delivery delivery : tmp3){
             System.out.println(delivery);
         }
 
         Delivery test1 = new Delivery(SpaceX.getCoordinates(), destination1, 2.2, 3.2, John, redBicycle);
         Delivery test2 = new Delivery(SpaceX.getCoordinates(), destination1, 2.2, 3.2, John, blueBicycle);
+        System.out.println("CO2 of jake yamama: " + tmp3.get(0).getCo2Emission());
+        System.out.println("price of jake yamama: " + tmp3.get(0).getPriceOfDelivery());
+        System.out.println("CO2 of john red bicycle: " + tmp3.get(2).getCo2Emission());
+        System.out.println("price of john red bicycle:  " + tmp3.get(2).getPriceOfDelivery());
 
         System.out.println(test1.validWeightAndDuration());
         System.out.println(test2.validWeightAndDuration());
+
+        System.out.println(SpaceX.getListOfNotWorseDeliveries(tmp3));
+        System.out.println(SpaceX.getAllValidDeliveries(tmp3));
+
+        System.out.println("CO2 emission test:");
+        System.out.println(greenScooter.getCo2Emission());
+        System.out.println(blueScooter.getCo2Emission());
+
+        //check if cylinder too big
+        System.out.println(tmp3);
+        SpaceX.getDeliveriesInOrder(tmp3);
+        System.out.println(tmp3.get(0).getCo2Emission());
+        System.out.println(tmp3.get(4).getCo2Emission());
     }
 }
