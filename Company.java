@@ -160,9 +160,7 @@ public class Company {
         return tmpAL;
     }
 
-    public void getOrderedBestDeliveries(){
 
-    }
 
     // public String toString(){
     // return
